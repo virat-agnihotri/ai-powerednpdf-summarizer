@@ -1,0 +1,8 @@
+sentence transformer notes
+yt links :-
+https://www.youtube.com/watch?v=OlhNZg4gOvA
+https://www.youtube.com/watch?v=nZ5j289WN8g
+
+notes
+
+https://github.com/PradipNichite/Youtube-Tutorials/blob/main/Youtube_Course_Sentence_Transformers.ipynb

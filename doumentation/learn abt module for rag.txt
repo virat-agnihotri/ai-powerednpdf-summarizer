@@ -1,0 +1,48 @@
+1. LangChain (Start Here)
+LangChain Explained in 13 Minutes (Rabbitmetrics) — quick overview of chains, prompts, retrieval, and RAG concepts.
+LangChain Tutorial for Beginners (CodeWithHarry) — beginner-friendly and longer, suitable if you're new to AI frameworks.
+LangChain Fundamentals – Building Your First Chain — short introduction to core concepts.
+2. PyPDF / PDF Loading
+The official LangChain PyPDFLoader documentation is actually one of the best resources because PyPDFLoader is a small library and doesn't require hours of video learning. It explains loading PDFs page-wise or as a single document.
+3. Sentence Transformers (Most Important for RAG)
+Sentence Embedding, Semantic Search & Clustering (Pradip Nichite) — covers embeddings and semantic search, which is exactly what a vector database uses.
+Intro to Sentence Embeddings with Transformers (James Briggs) — explains how embeddings work conceptually and how they are used for search and retrieval.
+Learning Path for You
+
+Since you already know Python:
+
+Python
+   ↓
+PyPDF
+   ↓
+Sentence Transformers
+   ↓
+FAISS
+   ↓
+LangChain
+   ↓
+Build RAG
+
+A common mistake is learning LangChain first. LangChain is mostly a wrapper around other tools. If you understand:
+
+PyPDF (extract text)
+Sentence Transformers (create embeddings)
+FAISS (store vectors)
+
+then LangChain becomes much easier.
+
+For your first RAG project, I would suggest:
+
+Week 1:
+PyPDF + Sentence Transformers
+
+Week 2:
+FAISS
+
+Week 3:
+Build RAG without LangChain
+
+Week 4:
+Rebuild the same RAG using LangChain
+
+That approach will help you understand what each component is doing rather than just connecting prebuilt blocks.

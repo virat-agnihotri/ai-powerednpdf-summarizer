@@ -1,0 +1,228 @@
+1.Frontend
+.react,html/css/js
+
+front end job 
+user upload PDF
+or user ask query
+
+send request to the backend API
+
+Frontend
+    ↓
+POST /upload
+    ↓
+Backend
+
+2.Backend
+.python +fast api
+chat API 
+
+
+EXAMPLE
+Suppose user uploads:
+Operating Systems.pdf
+Backend receives PDF
+
+STEP 1-
+PyPDF2
+or
+pymupdf
+
+text = extract_text(pdf)
+
+STEP 2-
+LLMs cannot handle huge documents efficiently.
+Split into small pieces.
+
+use:-
+LangChain Text Splitter
+chunk_size = 500
+overlap = 100
+Why Overlap?
+
+Without overlap:
+
+Chunk 1:
+Virat is studying Artificial
+
+Chunk 2:
+Intelligence at college
+
+Meaning breaks.
+
+With overlap:
+
+Chunk 1:
+Virat is studying Artificial
+
+Chunk 2:
+studying Artificial Intelligence at college
+
+Context remains.
+
+STEP 3-
+text cannot be searched directly so we have to convert it into vector
+so can use
+OpenAI Embeddings
+Sentence Transformers
+BGE Models
+ 
+popular free mmodel
+python
+BAAI/bge-small-en-v1.5
+
+STEP 4-
+store vector in database
+since normal sql stores in name age salary
+RAG stores in embedding vector+original chunck
+
+so can use 
+FAISS (local)
+ChromaDB
+Qdrant
+Pinecone
+
+postgreSQL is applicable in all other projects so i think we can learn it
+or biggner coice as per chatgpt is FAISS
+
+
+QUERY PROCESS
+
+Suppose user asks:
+What is CPU Scheduling?
+
+Step 1: Query Embedding
+Convert query:
+What is CPU Scheduling?
+↓
+Vector
+
+Step 2: Similarity Search
+Search vector database.
+FAISS finds closest chunks.
+Example:
+Chunk:
+CPU Scheduling...
+Similarity = 0.95
+Chunk:
+Memory Management...
+Similarity = 0.42
+Retrieve top chunks.
+top_k = 3
+
+Step 3: Build Prompt
+Backend creates:
+Answer only from context.
+Context:
+CPU Scheduling is...
+Round Robin...
+Priority Scheduling..
+Question:
+What is CPU Scheduling?
+
+Step 4: Send to LLM
+Could be:
+GPT
+Gemini
+Claude
+Local Llama
+response = llm(prompt)
+
+Step 5: Return Answer
+Backend
+   ↓
+Frontend
+   ↓
+User
+
+
+
+
+Database Structure
+
+If using FAISS:
+
+Index
+│
+├── Vector 1
+├── Vector 2
+├── Vector 3
+└── Vector N
+
+Metadata:
+
+{
+ "source":"OS.pdf",
+ "page":5,
+ "chunk_id":12
+}
+
+Stored separately.
+=========================================
+Project Folder Structure
+rag_project/
+
+│
+├── frontend/
+│   ├── React
+│
+├── backend/
+│   ├── main.py
+│   ├── upload.py
+│   ├── chat.py
+│
+├── data/
+│   ├── pdfs/
+│
+├── vector_db/
+│   ├── faiss_index
+│
+├── embeddings/
+│
+├── requirements.txt
+│
+└── README.md
+
+==================================================
+Tech Stack I Recommend for Your First RAG
+
+Frontend:
+React
+
+Backend:
+FastAPI
+
+LLM:
+Gemini API
+
+Embedding:
+BAAI/bge-small-en-v1.5
+
+Vector DB:
+FAISS
+
+PDF Parsing:
+PyMuPDF
+
+Chunking:
+LangChain Text Splitter
+======================================
+Learning order:
+
+Python
+    ↓
+FastAPI
+    ↓
+PDF Reading
+    ↓
+Embeddings
+    ↓
+FAISS
+    ↓
+LLM APIs
+    ↓
+Complete RAG
+    ↓
+Frontend Integration
+
+This path will help you understand how RAG actually works internally rather than just dragging blocks in n8n or using a no-code tool.

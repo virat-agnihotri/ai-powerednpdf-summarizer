@@ -1,0 +1,186 @@
+for installatioin process
+1. Install Python
+
+Check:
+
+python --version
+
+Use Python 3.11 or 3.12.
+
+2. Install VS Code
+
+VS Code
+
+Install these extensions:
+
+Python
+Pylance
+Jupyter (optional)
+3. Create Project Folder
+mkdir rag_project
+cd rag_project
+4. Create Virtual Environment
+python -m venv venv
+
+Activate:
+
+Windows:
+
+venv\Scripts\activate
+5. Install Core Packages
+pip install pymupdf
+pip install sentence-transformers
+pip install faiss-cpu
+pip install langchain
+pip install langchain-text-splitters
+pip install fastapi
+pip install uvicorn
+pip install numpy
+6. Create Folder Structure
+rag_project/
+
+├── data/
+│   └── pdfs/
+│
+├── vector_db/
+│
+├── backend/
+│
+├── frontend/
+│
+├── main.py
+│
+└── requirements.txt
+7. Decide Your Embedding Model
+
+For learning:
+
+BAAI/bge-small-en-v1.5
+
+This will download automatically when used.
+
+8. Decide Your Vector Database
+
+For your first project:
+
+Option 1 (Recommended)
+
+FAISS
+
+Advantages:
+
+Free
+Runs locally
+No account needed
+Fast
+
+Later you can learn:
+
+Chroma
+Qdrant
+Pinecone
+9. Decide Your LLM
+
+Choose one:
+
+Free Beginner Option
+
+Google AI Studio
+
+Get a Gemini API key.
+
+Save:
+
+GEMINI_API_KEY=your_key
+10. Learn These Concepts Before Coding
+
+You don't need mastery, but understand:
+
+PDF Parsing
+     ↓
+Chunking
+     ↓
+Embeddings
+     ↓
+Vector Database
+     ↓
+Similarity Search
+     ↓
+Prompt Engineering
+     ↓
+LLM Response
+11. Learn These Python Libraries
+
+In order:
+
+PyMuPDF
+
+Used for:
+
+PDF → Text
+LangChain Text Splitter
+
+Used for:
+
+Text → Chunks
+Sentence Transformers
+
+Used for:
+
+Chunks → Embeddings
+FAISS
+
+Used for:
+
+Store/Search Vectors
+FastAPI
+
+Used for:
+
+Frontend ↔ Backend
+12. Final Architecture
+User Uploads PDF
+        │
+        ▼
+   FastAPI Backend
+        │
+        ▼
+   Extract Text
+        │
+        ▼
+   Chunk Text
+        │
+        ▼
+ Create Embeddings
+        │
+        ▼
+ Store in FAISS
+        │
+────────────────────
+        │
+User Asks Question
+        │
+        ▼
+Create Query Vector
+        │
+        ▼
+Search FAISS
+        │
+        ▼
+Top Relevant Chunks
+        │
+        ▼
+Gemini API
+        │
+        ▼
+Final Answer
+        │
+        ▼
+Frontend
+
+For someone at your stage, I'd learn in this exact order:
+
+Python → FastAPI → PyMuPDF → Chunking → Embeddings → FAISS → Gemini API → Full RAG → React frontend.
+
+Don't start with React yet. First get a command-line RAG working end-to-end. Once that works, add the frontend.
+

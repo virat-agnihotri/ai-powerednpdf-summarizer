@@ -1,0 +1,13 @@
+@import "tailwindcss";
+body{
+    background-color: grey;
+}
+li{
+    font-size: large;
+    
+}
+.navbar{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: aqua;
+
+}
