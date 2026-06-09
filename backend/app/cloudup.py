@@ -12,6 +12,6 @@ def open_file_explorer():
         print(f"File Name: {os.path.basename(selected_file_path)}")
         return selected_file_path
     else:
-        print("User cancelled orclosed the file explorer.")
+        print("User cancelled or closed the file explorer.")
         return None
 pdf_to_upload=open_file_explorer()
