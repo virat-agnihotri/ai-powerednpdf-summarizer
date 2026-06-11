@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.upload import router as upload_router  # Import the upload router
+from app.retriever import router as retrive_query
 
 app = FastAPI()
 
@@ -23,3 +24,6 @@ def read_root():
 
 # REGISTER YOUR MODULES HERE
 app.include_router(upload_router)
+
+#this created by me not sure
+app.include_router(retrive_query)

@@ -1,5 +1,5 @@
 import fitz
-
+import re
 def extract_text_from_bytes(pdf_bytes):
 
     doc = fitz.open(
@@ -13,5 +13,7 @@ def extract_text_from_bytes(pdf_bytes):
         text += page.get_text()
 
     doc.close()
-
     return text
+def splitting_the_text(text):
+    sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+    return sentences
