@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-
+import SideBar from "./components/SideBar"
+import MainPage from "./components/MainPage"
 function App() {
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
@@ -34,15 +35,18 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>AI Powered PDF Summarizer</h1>
-      <input type="file" accept=".pdf" onChange={(e) => setFile(e.target.files[0])}/>
-      <input type = "text"/>
-      <button className="upload-btn" onClick={uploadPDF}>Upload PDF</button>
-      <button>hii</button>
-      <p>{message}</p>
+    <div className="landing-page">
+      <SideBar />
+      <MainPage />
     </div>
   );
 }
 
 export default App;
+
+{/* <h1>AI Powered PDF Summarizer</h1>
+<input type="file" accept=".pdf" onChange={(e) => setFile(e.target.files[0])}/>
+<input type = "text"/>
+<button className="upload-btn" onClick={uploadPDF}>Upload PDF</button>
+<button>hii</button>
+<p>{message}</p> */}
